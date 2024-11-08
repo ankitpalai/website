@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="owl.carousel.min.css">
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        body {overflow-x: hidden;background:#f7f6fb;}
+        .header-container {background: url("images/landing/logo_bg.jpg") repeat-x center center;border-top: #7c8d41 6px solid;position: static}
+        .header-container .header {grid-template-columns: 100%;justify-content: center;padding: 10px;height: 240px;}
+        .header-container .header .logo {text-align: center;}
+        .header-container .header .logo img {height: 140px !important}
+        .heading-with-bg h1 {color:#1f59aa}
+        .heading-with-bg p {color:#7c8d41}
+        
+        .our-vision {background: #728534;text-align: center;padding: 20px 0 35px;}
+        .our-vision h1 {color: #fff;font-family: "Playfair Display",serif !important;font-size: 100px;}
+        .our-vision p {color: #fff;font-family: "Playfair Display",serif !important;font-size: 36px;}
+        
+        .banner-landing {margin-top: 10px;position: relative;}
+        .banner-landing img {object-fit: cover;width: 100%;display: block;}
+        .banner-caption {text-align: right;padding: 20px;position: absolute;top: 0;width: 800px;right: 5%;top: 50%;transform: translateY(-50%);}
+        .banner-caption .heading {color: #f8f500;font-family: "Playfair Display",serif;font-size: 70px;font-weight: bold;text-align: left !important}
+        .banner-caption p {font-family: "Playfair Display",serif;color:#ffffff;font-size: 36px;}
+        
+        .heading {text-align: center;margin-top: 50px;}
+        .heading h2 {color: #7c8d41;font-size: 50px;font-weight: 700;font-family: "Playfair Display",serif !important;overflow: hidden;padding-bottom: 12px;}
+        .heading h2 span {color:#fff;position: relative;margin-left: 15px;}
+        .heading h2 span::after {content: "";background: #7c8d41;height: 80px;width: 1300px;display: inline-block;position: absolute;left: -10px;top: 0;z-index: -1;}
+        .heading h3 {color: #7c8d41;font-size: 28px;padding: 10px 0;font-family: "Playfair Display",serif !important;}
+        
+        .info-box {background: #728534;padding: 30px;text-align: center;}
+        .info-box .box-heading {color: #fff405;font-family: "Playfair Display",serif;font-size: 60px;font-weight: 700;padding: 20px 0 25px;}
+        .info-box .box-flex {display: flex;justify-content: space-around;margin-top: 140px;position: relative;}
+        .info-box .box-flex::before {content: "";position: absolute;background: #fff;height: 2px;width: 1395px;top: -110px;}
+        .info-box .box {text-align: center;padding: 20px;border-radius: 15px;position: relative;width: 25%;}
+        .info-box .box h3 {color: #fff405;font-family: "Playfair Display",serif;font-weight: 700;font-size: 50px;padding-bottom: 10px;}
+        .info-box .box p {color: #fff;font-size: 30px;font-weight: 700;font-family: "Playfair Display",serif;}
+        .info-box .box::before {content: "";position: absolute;background: #fff;width: 2px;height: 120px;top: -110px;}
+        .box-button {text-align: center;}
+        .box-button a {color: #fff405;font-family: "Playfair Display",serif;font-size: 30px;text-transform: uppercase;font-weight: 700;border: #fff405 1px solid;padding: 10px 30px;border-radius: 50px;display: inline-block;margin: 30px 0 20px;}
+        .box-button a:hover {background:#fff405;color:#728534}
+        .btn-green a {color: #798d41;border-color:#798d41}
+        .btn-green a:hover {background:#798d41;color:#ffffff}
+        
+        .box-blue .box {background: #0058aa;}
+        .box-blue::after {content: "";position: absolute;background: #ffde59;width: 100%;height: 3px;top: 50%;z-index: -1;}
+        .box-yellow .box {background: #ffde59;}
+        .box-yellow .box p {color:#0058aa}
+        .box-yellow::after {content: "";position: absolute;background: #798d41;width: 100%;height: 3px;top: 50%;z-index: -1;}
+        .box-grey-wrapper {padding: 40px 0;}
+        
+        
+        .zigzag-colbox {display: grid;grid-template-columns: 26% 26% 26%;justify-content: center;grid-gap: 80px;margin: 50px 0;}
+        .zigzag-colbox .zigzag-col {text-align: center;display: flex;flex-direction: column;}
+        .zigzag-colbox .zigzag-col .thumb {text-align: center;position: relative}
+        .zigzag-colbox .zigzag-col .thumb::before {content: "";background: #7c8d41;height: 100px;width: 240px;display: inline-block;position: absolute;z-index: -1;top: 50%;transform: translate(-50%,-50%);left: 50%;}
+        .zigzag-colbox .zigzag-col .thumb img {border-radius: 20px;display: inline-block;}
+        .zigzag-colbox .zigzag-col .content {}
+        .zigzag-colbox .zigzag-col .content h3 {color: #7c8d41;font-family: "Playfair Display",serif !important;font-size: 30px;padding: 10px 0 4px;}
+        .zigzag-colbox .zigzag-col .content h4 {font-family: "Playfair Display",serif !important;color: #7c8d41;margin-bottom: 15px;font-size: 20px;}
+        .zigzag-colbox .zigzag-col .content p {font-family: "Playfair Display",serif !important;color:#7c8d41}
+    
+        .our-students {display: grid;grid-template-columns: 20% 20% 20%;justify-content: center;grid-gap: 80px;margin: 50px 0;}
+        .our-students .our-students-col {text-align: center;display: flex;flex-direction: column;}
+        .our-students .our-students-col .thumb {text-align: center;position: relative}
+        .our-students .our-students-col .thumb::before {content: "";background: #7c8d41;height: 100px;width: 240px;display: inline-block;position: absolute;z-index: -1;top: 50%;transform: translate(-50%,-50%);left: 50%;}
+        .our-students .our-students-col .thumb img {border-radius: 20px;display: inline-block;}
+        .our-students .our-students-col .content {}
+        .our-students .our-students-col .content h3 {color: #7c8d41;font-family: "Playfair Display",serif !important;font-size: 30px;padding: 10px 0 4px;}
+        .our-students .our-students-col .content h4 {font-family: "Playfair Display",serif !important;color: #7c8d41;margin-bottom: 15px;font-size: 20px;}
+        .our-students .our-students-col .content p {font-family: "Playfair Display",serif !important;color:#7c8d41}
+        .our-students .our-students-col .content .more {}
+        .our-students .our-students-col .content .more a {font-family: "Playfair Display",serif !important;font-size: 15px;color: #000;}
+        
+        .pp-content {text-align: center;}
+        .pp-content .thumb {}
+        .pp-content .thumb img {}
+        .pp-content h2 {color: #7c8d41;font-size: 30px;padding: 10px 0 4px;}
+        .pp-content p {font-family: "Playfair Display",serif !important;color: #0058aa;margin-bottom: 15px;font-size: 18px;}
+        .pp-content .pp-video {margin-top: 30px;}
+        .pp-content .pp-video iframe {}
+        
+        .meet-kushal {margin: 30px 0 50px;padding: 0 10%;}
+        .meet-kushal .meet-kushal-content {display: flex;align-items: center;}
+        .meet-kushal .meet-kushal-content .thumb {width: 400px;margin-right: 50px;}
+        .meet-kushal .meet-kushal-content .thumb img {width: 100%;border-radius: 20px;}
+        .meet-kushal .meet-kushal-content .content {}
+        .meet-kushal .meet-kushal-content .content p {color: #000;margin-bottom: 15px;font-family: "Playfair Display",serif;font-size: 28px;}
+        .meet-kushal .meet-kushal-video {}
+        .meet-kushal .meet-kushal-video iframe {width: 100%;}
+        
+        .meet-saloni {background: #0058aa;padding: 50px 0;}
+        .meet-saloni h2 {color: #ffde59;font-size: 33px;text-align: center;padding: 0 20%;margin-bottom: 40px;}
+        .meet-saloni .meet-kushal .meet-kushal-content p {color: #fff !important;font-style: italic;font-family: inherit !important}
+        
+        .custom-video {position: relative;}
+        .custom-video .play-btn {position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
+        .custom-video .play-btn img {height: 60px;width: 60px;}
+        
+        .our-partners {}
+        .our-partners h2 {text-align: center;padding: 25px 0 10px;font-size: 36px;}
+        .our-partners .partners {display: grid;grid-template-columns: 32% 32% 32%;justify-content: space-between;}
+        .our-partners .partners div {text-align: center;}
+        .our-partners .partners div img {}
+        
+        .our-campus-gallery {margin: 20px 0 40px; text-align: center;}
+        .our-campus-gallery h2 {color: #7c8d41;font-size: 50px;font-weight: 700;font-family: "Playfair Display",serif !important;overflow: hidden;padding-bottom: 12px;}
+        .our-campus-gallery h2 span {color: #fff;position: relative;margin-left: 15px;}
+        .our-campus-gallery h2 span::after {content: "";background: #7c8d41;height: 80px;width: 1300px;display: inline-block;position: absolute;left: -10px;top: 0;z-index: -1;}
+        
+        
+        .our-campus-gallery .campus-gallery {display: grid;grid-template-columns: auto auto auto auto auto auto;justify-content: space-between;grid-gap: 12px;padding: 4% 4% 0;}
+        .our-campus-gallery .campus-gallery div {}
+        .our-campus-gallery .campus-gallery div a {display:block;cursor: pointer;}
+        .our-campus-gallery .campus-gallery div a img {width: 100%;object-fit: cover;height: 280px;display: block;border-radius: 20px;box-shadow: #b5b5b5 2px 3px 5px;}
+        
+        .meet-arun-sharma {}
+        .meet-arun-sharma h2 {color: #0058aa;font-size: 50px;font-weight: 800;text-align: center;margin-bottom: 40px;}
+        .meet-arun-sharma .meet-arun-content {display: grid;grid-template-columns: 25% 75%;padding: 0 4%;margin-bottom: 60px;}
+        .meet-arun-sharma .meet-arun-content .thumb {}
+        .meet-arun-sharma .meet-arun-content .thumb img {border-radius: 20px;width:100%}
+        .meet-arun-sharma .meet-arun-content .thumb p {font-family: "Playfair Display",serif !important;color: #7c8d41;margin-bottom: 15px;font-size: 20px;padding: 2% 10%;text-align: center;}
+        .meet-arun-sharma .content {padding-left: 20px;}
+        .meet-arun-sharma .content p {font-family: "Playfair Display",serif !important;color: #7c8d41;margin-bottom: 15px;font-size: 16px;line-height: 24px;}
+        .meet-arun-sharma .meet-video {text-align: center;margin: 35px 0;}
+        .meet-arun-sharma .meet-video iframe {width: 710px;}
+        
+        .stats {background: #7c8d41;padding: 100px 0 40px;}
+        .stats .stats-box {display: grid;grid-template-columns: 20% 20% 20% 20% 20%;justify-content: center;margin-bottom: 80px;}
+        .stats .stats-box .box {text-align: center;border-right: #fff 1px solid;}
+        .stats .stats-box .box:last-child {border-right:0}
+        .stats .stats-box .box h2 {color: #fff405;/*font-family: "Playfair Display",serif !important;*/font-size: 50px;}
+        .stats .stats-box .box p {font-family: "Playfair Display",serif !important;color: #fff;font-size: 22px;}
+        .stats .box-button {}
+        .stats .box-button a {color: #fff405;border: #fff405 1px solid;}
+        .stats .box-button a:hover {background: #fff405;color:#7c8d41}
+        
+        
+        .donate-section {padding: 0 4%;display: grid;grid-template-columns: 30% 30% 30%;justify-content: space-between;margin-bottom: 150px;}
+        .donate-section .donate-sec {display: flex;flex-direction: column;justify-content: center;text-align: center;position: relative;}
+        .donate-section .donate-sec .icon {}
+        .donate-section .donate-sec .icon img {}
+        .donate-section .donate-sec h3 {color: #0058aa;font-size: 30px;padding: 20px 0 30px;}
+        .donate-section .donate-sec .video {}
+        .donate-section .donate-sec .video iframe {}
+        .donate-section .donate-sec .button {margin-top: 28px;position: absolute;bottom: -65px;width: 100%;}
+        .donate-section .donate-sec .button a {background: rgb(121,142,65);background: linear-gradient(90deg, rgba(121,142,65,1) 0%, rgba(140,196,63,1) 100%);color: #fff;padding: 16px 60px;font-weight: 700;border-radius: 50px;display: inline-block;}
+        .donate-sec .donate-btn {margin-bottom: 40px;}
+        .donate-sec .donate-btn a {background: #ffd358;color: #0058aa;padding: 16px 60px;font-weight: 700;border-radius: 50px;display: inline-block;-webkit-box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);-moz-box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);}
+        
+        .floating-button {position: fixed;right: 2%;bottom: 4%;z-index: 9999;}
+        .floating-button a {background: #ffd358;color: #0058aa;padding: 16px 60px;font-weight: 700;border-radius: 50px;display: inline-block;-webkit-box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);-moz-box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);box-shadow: inset 1px 10px 65px -46px rgba(46,46,46,1);}
+        
+        .our-partners-container h2 {color: #0058aa;font-size: 50px;font-weight: 800;text-align: center;margin-bottom: 40px;}
+        .green-buttons {display: none;}
+        .footer-container .footer .footer-col .footer-button {display: none;}
+        
+        .content-popup {width: 900px !important;}
+        .pp-style-1 {}
+        .pp-style-1 .pp-content::before {content: "";position: absolute;top: -100px;left: -100px;background: #7c8d41;width: 200px;height: 670px;z-index: 0;}
+        .pp-style-1 .pp-content {display: grid; grid-template-columns: 25% 71%; align-items: start;justify-content: space-between;position: relative}
+        .pp-style-1 .pp-content .thumb {text-align: left;padding-top: 20px;position: relative;}
+        .pp-style-1 .pp-content .thumb img {width: 100%;border-radius: 16px;}
+        .pp-style-1 .pp-content .thumb {}
+        .pp-style-1 .pp-content .content {text-align: left;}
+        .pp-style-1 .pp-content .content h2 {font-family: "Playfair Display",serif !important;margin-bottom: 10px;}
+        .pp-style-1 .pp-content .content h4 {font-family: "Playfair Display",serif !important;color: #7c8d41;margin-bottom: 14px;font-size: 20px;}
+        .pp-style-1 .pp-content .content p {font-family: "Playfair Display",serif !important;font-size: 15px;margin-bottom: 10px;color: #000;}
+        .pp-style-1 .pp-content .content a {}
+        .pp-style-1 .pp-content .content .box-button {}
+        .pp-style-1 .pp-content .content .box-button a {font-size: 22px;margin-bottom: 0;}
+        
+        .update-box {margin-bottom: 40px;}
+        .update-box img {width: 100%;}
+        .update-box .box-button {}
+        .update-box .box-button a {}
+        
+        .update-box {}
+        .update-box .img {position: relative}
+        .update-box .img img {}
+        .update-box .img .text-1 {color: #798d41;font-family: "Playfair Display,serif";font-size: 40px;font-weight: 700;position: absolute;top: 30%;left: 13%;text-align: center;}
+        .update-box .img .text-2 {color: #798d41;font-family: "Playfair Display,serif";font-size: 40px;font-weight: 700;position: absolute;top: 30%;right: 13%;text-align: center;}
+        
+        @media(max-width:1366px){
+            .meet-kushal .meet-kushal-video iframe, .custom-video video {height: 270px !important;}
+            .our-campus-gallery .campus-gallery div a img {height: 200px;}
+            .meet-arun-sharma .meet-arun-content .thumb img {width: 100%;}
+            .donate-section .donate-sec .video iframe {height: 200px;}
+            .donate-section .donate-sec .button a {padding: 16px 36px;}
+            .info-box .box-flex::before {width: 980px;}
+            
+        }
+        
+        @media(max-width:1024px){
+            .banner-landing img {height: 320px;}
+            .banner-caption p {font-size: 20px;}
+            .info-box .box {padding: 10px;}
+            .info-box {grid-gap: 8px;}
+            .info-box .box p {font-size: 14px;}
+            .heading h2 {font-size: 40px;}
+            .zigzag-colbox .zigzag-col .content h4 {font-size: 13px;}
+            .zigzag-colbox .zigzag-col .thumb img {width: 100%;}
+            .our-students .our-students-col .content h3 {font-size: 24px;}
+            .our-students .our-students-col .content p {font-size: 16px;margin-bottom: 4px;}
+            .our-students {grid-gap: 40px;}
+            .meet-kushal {grid-template-columns: 100%;padding: 0 4%;margin-bottom: 20px;}
+            .meet-kushal .meet-kushal-content {width: 100%;margin-right: 0;display: flex;flex-direction: column;justify-content: center;text-align: center;}
+            .meet-kushal .meet-kushal-content .thumb img {width: 200px;}
+            .meet-kushal .meet-kushal-video iframe, .custom-video video {height: 400px !important;}
+            .meet-saloni h2 {font-size: 24px;padding: 0 4%;}
+            .our-campus-gallery h2, .meet-arun-sharma h2 {font-size: 40px;line-height: 44px;}
+            .our-campus-gallery .campus-gallery {grid-gap: 8px;}
+            .our-campus-gallery .campus-gallery div a img {height: 110px;}
+            .meet-arun-sharma .meet-arun-content {grid-template-columns: 100%;}
+            .meet-arun-sharma .meet-video iframe {width: 100%;}
+            .our-students {margin: 40px 0}
+            .meet-arun-sharma {margin-top: 30px;}
+            .meet-arun-sharma .meet-arun-content .thumb p {font-size: 26px;padding: 2% 4%;}
+            .donate-section .donate-sec .icon img {height: 100px;}
+            .donate-section .donate-sec h3 {font-size: 22px;padding: 20px 0;}
+            .donate-sec .donate-btn a {padding: 16px 40px;}
+            .donate-section .donate-sec .video iframe {height: 122px;}
+            .donate-section .donate-sec .button {bottom: -90px;}
+            .donate-section .donate-sec .button a {font-size: 15px;}
+            .meet-arun-sharma .meet-video {margin-bottom:0;}
+            .our-partners-container h2 {font-size: 40px;margin-bottom: 30px;}
+            .header-container .header {height: 160px;}
+            .header-container .header .logo img {height: 100px !important;}
+            .our-vision h1 {font-size: 60px;}
+            .our-vision p {font-size: 30px;}
+            .banner-caption .heading {font-size: 36px;text-align: right !important;}
+            .banner-caption {width: 460px;}
+            .info-box .box-heading {font-size: 40px;}
+            .info-box .box h3 {font-size: 34px;}
+            .info-box .box p {font-size: 20px;}
+            .box-button a {font-size: 22px;}
+            .info-box .box-flex::before {width: 532px;}
+            .zigzag-colbox .zigzag-col .thumb::before, .our-students .our-students-col .thumb::before {width: 182px;}
+            .zigzag-colbox, .our-students {grid-template-columns: 20% 20% 20%;grid-gap: 70px;}
+            .zigzag-colbox .zigzag-col .content h3 {font-size: 22px;}
+            .zigzag-colbox .zigzag-col .content h4 {font-size: 16px;}
+            .zigzag-colbox .zigzag-col .content p br {display:none}
+            .box-grey-wrapper {padding: 20px 0;}
+            .our-students .our-students-col .thumb img {width: 100%;}
+            .our-students .our-students-col .content h4 br {display:none}
+            .meet-kushal .meet-kushal-content {flex-direction: row;}
+            .meet-kushal .meet-kushal-content .thumb img {width: 100%;}
+            .meet-kushal .meet-kushal-content .thumb {width: 350px;margin-right: 20px;}
+            .meet-kushal .meet-kushal-content .content p {font-size: 24px;}
+            .stats .stats-box .box h2 {font-size: 36px;}
+            .stats .stats-box .box p {font-size: 16px;}
+            .stats {padding: 70px 0 20px;}
+            .stats .stats-box {margin-bottom: 60px;}
+            .our-campus-gallery h2, .meet-arun-sharma h2 {font-size: 34px;}
+            
+            .update-box .img .text-1 {font-size: 30px;left: 10%;}
+            .update-box .img .text-2 {font-size: 30px;right: 10%;}
+            
+        }
+        
+        @media(max-width:1024px) and (orientation:landscape){
+            .donate-section .donate-sec .video iframe {height: 160px;}
+            .banner-landing img {height: 420px;}
+            .info-box .box-flex::before {width: 723px;}
+            
+        }
+        
+        @media(max-width:767px){
+            .banner-landing img {height: 200px;}
+            .banner-caption p {font-size: 14px;}
+            .info-box {grid-gap: 4px;}
+            .info-box .box {padding: 6px;}
+            .info-box .box p {font-size: 14px;line-height: 18px;}
+            .heading h2 {font-size: 30px;line-height: 34px;text-align: left;}
+            .heading {margin-top: 20px;padding-left: 30px;}
+            .heading h2 span::after {left: -20px;}
+            .zigzag-colbox {grid-template-columns: 100%;grid-gap: 30px;margin: 10px 0 40px;padding: 20px;}
+            .zigzag-colbox .zigzag-col .content h3 {font-size: 24px;}
+            .zigzag-colbox .zigzag-col .content h4 {font-size: 16px;}
+            .zigzag-colbox .zigzag-col:nth-child(2) .thumb {order:1}
+            .zigzag-colbox .zigzag-col:nth-child(2) .content {order:2}
+            .our-students {grid-template-columns: 100%;grid-gap: 30px;margin: 10px 0;padding: 20px;}
+            .heading h2 span {display: inline-block;}
+            .heading h3 {font-size: 22px;}
+            .meet-kushal .meet-kushal-video iframe, .custom-video video {height: 200px !important;}
+            .meet-saloni {padding: 20px 0;}
+            .our-campus-gallery h2, .meet-arun-sharma h2 {font-size: 30px;line-height: 40px;margin-bottom: 20px;margin-top: 20px;}
+            .our-campus-gallery .campus-gallery div a img {height: 80px;border-radius: 10px;}
+            .our-campus-gallery .campus-gallery {grid-gap: 4px;margin-bottom: 30px;}
+            .meet-arun-sharma .meet-arun-content .thumb p {font-size: 22px;}
+            .meet-arun-sharma .content p {font-size: 14px;line-height: 22px;}
+            .meet-arun-sharma .content {padding-left: 0;}
+            .meet-arun-sharma .meet-video iframe {height: 200px;}
+            .donate-section {grid-template-columns: 100%;margin-bottom: 10px;}
+            .our-partners-container h2 {font-size: 30px;margin-bottom: 20px;}
+            .donate-section .donate-sec .button {margin-top: 20px;position: static;}
+            .donate-section .donate-sec {margin-bottom: 10px;}
+            .donate-section .donate-sec .video iframe {height: 200px;}
+            .donate-section .donate-sec .button a {font-size: 14px;}
+            .banner-inner-container .banner-inner .breadcrums {display: none;}
+            .donate-section .donate-sec-01 {order: 2;}
+            .donate-section .donate-sec-02 {order: 1;}
+            .donate-section .donate-sec-03 {order: 3;}
+            .donate-section .donate-sec .button {display: none;}
+            .green-buttons {display:block;padding: 0 4%;}
+            .green-buttons .button {margin: 8px 0;}
+            .green-buttons .button a {background: linear-gradient(90deg, rgba(121,142,65,1) 0%, rgba(140,196,63,1) 100%);color: #fff;padding: 16px 20px;font-weight: 700;border-radius: 50px;display: inline-block;text-align: center;width: 100%;}
+            .banner-caption p br {display:none}
+            .header-container .header {height: 130px;}
+            .header-container .header .logo img {height: 80px !important;}
+            .our-vision h1 {font-size: 40px;}
+            .our-vision p {font-size: 18px;}
+            .banner-caption .heading {font-size: 24px;}
+            .banner-caption {width: 300px;padding-right: 0;}
+            /*.info-box .box-heading {font-size: 30px;padding: 10px;}
+            .info-box .box-flex::before {display: none;}
+            .info-box .box::before {display: none;}
+            .info-box .box p {font-size: 18px;line-height: normal;}
+            .info-box .box p br {display:none}
+            .info-box .box-flex {display: inline-flex;margin-top: 20px;flex-wrap: wrap;flex-direction: column;justify-content: center;}
+            .info-box .box {padding: 20px 0 20px;border-bottom: #94ac44 1px solid;border-radius: 0;}*/
+            .box-button a {margin-top: 0;}
+            .meet-kushal .meet-kushal-content {flex-direction: column;}
+            .meet-kushal .meet-kushal-content .thumb {width: auto !important;margin-right: 0;padding: 0 10px;}
+            .meet-kushal .meet-kushal-content .content p {font-size: 18px;}
+            .stats .stats-box {grid-template-columns: 100%;}
+            .stats .stats-box .box {padding: 10px 0;}
+            .stats {padding: 30px 0;}
+            .our-campus-gallery h2 span {display: inline-block;}
+            .our-campus-gallery h2, .meet-arun-sharma h2 {text-align: left;padding-left: 30px;}
+            .our-campus-gallery h2 span::after {left: -20px;}
+            .our-campus-gallery .campus-gallery {grid-template-columns: auto auto auto auto;grid-gap: 10px !important;}
+            .update-box .box-button {margin-top: 20px;}
+            .info-box .box-flex::before {width: 265px;}
+            .info-box .box::before {height: 90px;}
+            .info-box .box h3 {font-size: 20px;}
+            .info-box .box-flex {margin-bottom: 24px;}
+            
+            .update-box .img .text-1 {font-size: 18px;left: 6%;top: 20%;}
+            .update-box .img .text-2 {font-size: 18px;right: 6%;top: 20%;}
+            
+        }
+        @media(max-width:767px) and (orientation:landscape){
+            .donate-section .donate-sec .video iframe, .meet-kushal .meet-kushal-video iframe, .custom-video video, .meet-arun-sharma .meet-video iframe {height: 340px;}
+            .our-partners-container .our-partners .partners-content .partner-logo img {padding: 64px;}
+            .banner-landing img {height: 270px;}
+            .info-box .box p {font-size: 13px;line-height: 16px;}
+            .info-box .box {padding: 10px;}
+            .our-campus-gallery .campus-gallery div a img {height: 100px;}
+            .our-campus-gallery .campus-gallery {grid-gap: 8px;}
+            .our-campus-gallery h2, .meet-arun-sharma h2 {padding: 0 4%;}
+             
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M443BPGV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="overlay"></div>
+    
+    <section id="header-container" class="header-container">
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo">
+                    <a href="home.html"><img src="images/educational-logo-education.jpg" alt="MM Education Foundation"></a>
+                </div>
+                
+            </div>
+        </div>	
+    </section>
+    <div class="our-vision">
+        <h1>OUR VISION</h1>
+        <p>Transforming Lives through education.</p>
+    </div>
+    
+      
+    <div class="floating-button">
+        <a href="home.html">Donate Now</a>
+    </div>
+        
+    <div class="banner-landing">
+        <img src="New folder/banner-landing.png" alt="banner">
+    
+    <div class="banner-caption">
+        <div class="heading">MM Education Foundation</div>
+        <p>aims to enable a less privileged child to become a knowledge worker based on education & skills.</p>  
+    </div>
+    </div>
+        
+    <div class="info-box">
+        <div class="box-heading">
+            Since 2011
+        </div>
+        <div class="box-flex">
+            <div class="box">
+                <h3>7000+</h3>
+                <p>Children</p>
+            </div>    
+            <div class="box">
+                <h3>300+</h3>
+                <p>Alumni, <br>2x India's <br>per capita</p>
+            </div>
+            <div class="box">
+                <h3>>90%</h3>
+                <p>program <br>spend</p>
+            </div>
+            <div class="box">
+                <p>Audited <br>by Big 4</p>
+            </div>
+        </div>
+        <div class="box-button">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div>
+        
+    
+    <div class="box-grey-wrapper"> 
+    <div class="heading">
+        <h2>Hear from <span>Our Supporters</span></h2>    
+    </div>
+    <div class="zigzag-colbox">
+        <div class="zigzag-col">
+            <div class="thumb">
+                <img src="New folder/thumb-sneh-awasthi.jpg" alt="Sneh Awasthi">
+            </div>
+            <div class="content">
+                <h3>Sneh Awasthi</h3>
+                <h4>Donor since 2016</h4>
+                <p>I have witnessed myself the <br>happiness and joy in the students <br>who come to the school.</p>
+            </div>
+        </div>
+        
+        <div class="zigzag-col">
+            <div class="thumb">
+                <img src="New folder/thumb-sandeep-walia.jpg" alt="Sandeep Walia">
+            </div>
+            <div class="content">
+                <h3>Sandeep Walia</h3>
+                <h4>President & CEO, <br>Unify Dots</h4>
+                <p>I am so grateful to have Lotus Petal Foundation <br>helping children so they can pull themselves and <br>their families out of the proverty trap.</p>
+            </div>
+        </div>
+        
+        <div class="zigzag-col">
+            <div class="thumb">
+                <img src="New folder/thumb-dhairya-narayan-jha.jpg" alt="Dhairya Narayan Jha">
+            </div>
+            <div class="content">
+                <h3>Dhairya Narayan Jha</h3>
+                <h4>Donor since 2017</h4>
+                <p>Over time, my association has been truly <br>reassuring, The contributions are <br>dedicated to the right purpose, aligning <br>with what I aimed to support.</p>
+            </div>
+        </div>
+    </div>
+        
+    <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div>    
+    
+        
+    <div class="box-grey-wrapper"> 
+    <div class="heading">
+        <h2>Our students <span>Creating Impact</span></h2>    
+    </div>
+        
+        
+    <div class="our-students">
+        <div class="our-students-col">
+            <div class="thumb">
+                <img src="New folder/thumb-hema.jpg" alt="Hema">
+            </div>
+            <div class="content">
+                <h3>Hema</h3>
+                <h4>I work as an ORM <br>Executive in a startup</h4>
+                <p style="text-align: center"><a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/PzIVDSMdrPE?si=LMbFJKDXlNLpTpsE" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a></p>
+                <div class="more"><a data-fancybox data-src="#pp_hema" href="javascript:;">Click to know more <br>about Hema</a></div>
+            </div>
+        </div> 
+        <div class="our-students-col">
+            <div class="thumb">
+                <img src="New folder/thumb-saneema.jpg" alt="Saneema">
+            </div>
+            <div class="content">
+                <h3>Saneema</h3>
+                <h4>I work as an <br>Executive, in a MNC</h4>
+                <p style="text-align: center"><a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/gj6TUOXJG30?si=QtrVJNPDJo534Nj3" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a></p>
+                <div class="more"><a data-fancybox data-src="#pp_saneema" href="javascript:;">Click to know more <br>about Saneema</a></div>
+            </div>
+        </div> 
+        <div class="our-students-col">
+            <div class="thumb">
+                <img src="New folder/thumb-rahat.jpg" alt="Rahat">
+            </div>
+            <div class="content">
+                <h3>Rahat</h3>
+                <h4>I work as an IT executive <br>in a Non-Profit</h4>
+                <p style="text-align: center"><a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/aYXFoukxPF4?si=IhB-xgb9esss7ul7" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a></p>
+                <div class="more"><a data-fancybox data-src="#pp_rahat" href="javascript:;">Click to know more <br>about Rahat</a></div>
+            </div>
+        </div> 
+    </div>
+        
+    <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div> 
+    </div>	
+    
+        
+        
+    
+        
+    <div id="pp_hema" class="content-popup pp-style-1" style="display:none;">
+        <div class="pp-content">
+        <div class="thumb">
+            <img src="New folder/thumb-hema.jpg" alt="Hema">
+        </div>
+        <div class="content">
+            <h2>Hema</h2>
+            <h4>Bringing to you the story of Hema Rawat.</h4>
+            <p>The right quality education, having sheer confidence in oneself, and, a soft nudge, can do wonders in bringing the best in one's personality.</p>
+            <p>Hema, an excellent student of MM Education Foundation, joined us in 2016, in Pratishthan Learning Centre. Having successfully graduated with flying colours in 2021, she reminisces her journey.</p>
+            <p>Developing an interest in English through the encouragement by her teachers, helped her manifold.</p>
+            <p>From a student, to now a successful professional working in Quickmetrix, we bring to you the story of Hema Rawat.</p> 
+            
+            <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/PzIVDSMdrPE?si=LMbFJKDXlNLpTpsE" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a>
+            
+            
+            <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+            
+        </div>
+        </div>
+        
+    <div id="pp_saneema" class="content-popup pp-style-1" style="display:none;">
+        <div class="pp-content">
+        <div class="thumb">
+                <img src="New folder/thumb-saneema.jpg" alt="Saneema">
+        </div>
+        <div class="content">
+            <h2>Saneema</h2>
+        
+            <p>Saneema, one of our Alumni, visited the school recently during the Annual Alumni Meet. She has been with MM Education Foundation since 2015.</p>
+            <p>In the beginning, she was studying at grades lower than her age, but through the Fast-Track education & skilling program, she is now working in a MNC.</p>
+            <p>We will be with her long-term & we are sure that over a 50 year period, she will make an extraordinarily beautiful transformationin her life, her family, her community & the country.</p>    
+            
+            <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/gj6TUOXJG30?si=QtrVJNPDJo534Nj3" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a>
+            
+            <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+            
+        
+        </div>
+        </div>
+        
+    <div id="pp_rahat" class="content-popup pp-style-1" style="display:none;">
+        <div class="pp-content">
+        <div class="thumb">
+                <img src="New folder/thumb-rahat.jpg" alt="Rahat">
+        </div>
+        <div class="content">
+            <h2>Rahat</h2>
+        
+            <p>Rahat took a leap of faith in 2014 & joined Lotus Petal Foundation. His journey began at the Pratishthan Learning Centre, a Fast-Track Learning Program, which helped him cover his fractured education.</p>
+    
+            <p>Alongside his studies, MM Education Foundation helped him pursue a vocational course, which further helped him get a job. It has now been 4 years of his working successfully in the IT department of MM Education Foundation. Rahat recalls giving his first salary to his parents. The smile that he witnesses on their faces, spoke volumes of how happy they were.</p>
+    
+            <p>Inspired by the journey & dedication of our Founder & Managing Trustee, Mr. Kushal Chakravorty, he wants to keep himself associated with MM Education Foundation & bring a difference in the lives of the students. Rahat has dedicated himself to giving back to the society & feels immense fulfilment in his role as a Changemaker at MM Education Foundation.</p>  
+            
+            <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/aYXFoukxPF4?si=IhB-xgb9esss7ul7" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a>
+            <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+            
+    
+        </div>
+        </div>
+        
+        
+    <div class="heading">
+        <h2>Meet <span>Kushal Chakravorty</span></h2>  
+        <h3>who started it all.</h3>
+    </div>
+        
+    
+        
+    <div class="meet-kushal">
+        <div class="meet-kushal-content">
+            <div class="thumb">
+                <img src="New folder/thumb-kushal.jpg" alt="Kushal Chakravorty">
+            </div>
+            
+            <div class="content">
+                <p>I quit my corporate career of 17+ years to dedicate my life to educating children in the urban slums.</p>
+                <p><a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/z1cnffTNVP8?si=oSAVpr3v6muxaMhq" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a></p>
+            </div>
+        </div>
+        <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+    
+    <div class="stats">
+    <div class="stats-box">
+        <div class="box">
+            <h2>220+</h2>
+            <p>full time staff</p>
+        </div>    
+        <div class="box">
+            <h2>40+</h2>
+            <p>corporate partners</p>
+        </div>
+        <div class="box">
+            <h2>1000+</h2>
+            <p>individual supporters</p>
+        </div>
+        <div class="box">
+            <h2>200+</h2>
+            <p>active volunteers</p>
+        </div>
+        <div class="box">
+            <h2>99.9%</h2>
+            <p>spend via bank</p>
+        </div>
+    </div>
+    <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div>
+        
+        
+        
+    <div class="heading">
+        <h2>Meet <span>Saloni</span></h2>  
+        <h3>who will become doctor in 2024.</h3>
+    </div>
+        
+    
+        
+    <div class="meet-kushal">
+        <div class="meet-kushal-content">
+            <div class="thumb" style="width: 600px">
+                <img src="New folder/thumb-saloni.jpg" alt="saloni">
+            </div>
+            
+            <div class="content">
+                <p>"I joined MM Education in 2013, at age 14 with Grade 4. MM Education foundation did everything to help me catch up on education and now I'm living my dream to become a Doctor."</p>
+                
+                <p><a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/vGukuPm6jSs?si=WuDNqFYtcaGlKwlX" href="javascript:;"><img src="New folder/icon-youtube.png" alt="Youtube"></a></p>
+            </div>
+        </div>
+        <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+        
+        
+        
+    
+    <div class="our-campus-gallery">
+        <h2>Our campus has a <span>world-class education.</span></h2>   
+        
+        <div class="campus-gallery">
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-01.jpg"><img src="campus gallery/gallery-01.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-02.jpg"><img src="campus gallery/gallery-02.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-03.jpg"><img src="campus gallery/gallery-03.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-04.jpg"><img src="campus gallery/gallery-04.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-05.jpg"><img src="campus gallery/gallery-05.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-06.jpg"><img src="campus gallery/gallery-06.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-07.jpg"><img src="campus gallery/gallery-07.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-08.jpg"><img src="campus gallery/gallery-08.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-09.jpg"><img src="campus gallery/gallery-09.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-10.jpg"><img src="campus gallery/gallery-10.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-11.jpg"><img src="campus gallery/gallery-11.jpg" alt="Gallery"></a></div>
+            <div><a data-fancybox="gallery" data-src="images/landing/gallery-12.jpg"><img src="campus gallery/gallery-12.jpg" alt="Gallery"></a></div>
+        </div>
+        <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div>
+        
+        
+    <div class="heading">
+        <h2>Meet <span>Arun Sharma</span></h2>  
+        <h3>a Sponsor since 2017</h3>
+    </div>
+        
+    <div class="meet-kushal">
+        <div class="meet-kushal-content">
+            <div class="thumb" style="width: 100%">
+                <img src="New folder/thumb-arun-sharma.jpg" alt="arun sharma">
+            </div>
+            
+            <div class="content">
+                <p>All of us have so many struggles in our lives. There is so much pain in this world one wishes to alleviate. It used to bother me earlier that maybe I could do more. But somehow, through my association with Lotus Petal, I feel fulfilled I feel complete.</p>
+            </div>
+        </div>
+        <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+        </div>
+        
+    
+        
+    <div class="update-box">
+        <div class="img">
+            <span class="text-1"><a href="https://www.youtube.com/watch?v=rUjTF9fhB90">Sponsor a <br>Child</a></span>
+            <span class="text-2"><a href="https://www.youtube.com/watch?v=EiLCI47nQ3M">Sponsor a <br>Meal</a></span>
+            <img src="New folder/img-update.jpg" alt="Sponsor">  
+        </div>
+        <div class="box-button btn-green">
+            <a href="home.html">Donate Now</a>
+        </div>
+    </div>
+        
+    
+    <footer id="footer-container" class="footer-container">
+        <div class="wrapper">
+            <div class="footer">
+                <div class="footer-col pr-70">
+                    <div class="footer-logo">
+                        <img src="images/educational-logo-education.jpg" alt="logo">
+                    </div>
+                    <p>MM Education Foundation is a non-profit organisation founded in November 2011 with the primary objective to create equal opportunities for underprivileged children living in urban and semi-urban areas.</p>
+                    <div class="footer-button footer-hide">
+                        <a href="donation_page.php" class="btn btn-fill btn-small">Donate Now <span class="material-icons-outlined">arrow_right_alt</span></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="donation_page.php" class="footer-hide">Donate</a></li>
+                        <li><a href="campaigns.php">Start a Campaign</a></li>
+                                        </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Downloads</h3>
+                    <ul>
+                        <li><a href="/pdf/Annual_Report-LPF-2022-23.pdf" target="_blank">Annual Report</a></li>
+                        <li><a href="privacy_policy.php">Privacy Policy</a></li>
+                        <li><a href="terms_and_conditions.php">Terms & Conditions</a></li>
+                        <li><a href="refund_and_cancellation.php">Refund & Cancellation</a></li>
+                        <li><a href="public_reporting.php">Public Reporting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>MM Education Charitable Foundation</h3>
+                    <div class="addrs-row">
+                        <div class="icon"><img src="New Folder/icon-location.svg" alt="Location" width="24" height="24"></div>
+                        <div class="info"><p>Khasra No, 12/2 Khordha Road, Village Khordha Sector-32, Tehsil Kalpana Terminal – 122103, Odisha Bhubaneswar (India)</p></div>
+                    </div>
+                    <div class="addrs-row">
+                        <div class="icon"><img src="New Folder/icon-email.svg" alt="email" width="24" height="24"></div>
+                        <div class="info"><p><a href="mailto:connect@lotuspetalfoundation.org">connect@mmeducationfoundation.org</a></p></div>
+                    </div>
+                    <div class="addrs-row">
+                        <div class="icon"><img src="New Folder/icon-call.svg    " alt="call" width="24" height="24"></div>
+                        <div class="info"><p>+91-9818089635, +91-124-4238591</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </footer>
+    <div id="disclaimer" class="disclaimer">
+        <p><strong>DISCLAIMER:</strong>MM Education Foundation corresponds from email addresses with the domain “@mmeducationfoundation.org” or from mobile number 7978458261. We do not solicit donations from individuals via phone and WhatsApp and if you receive any calls or email where our name is used, we advise all not to act upon the same and we are not responsible for any donation advanced to the individuals claiming themselves to be associated with MM Education Charitable Foundation and if you have any doubt, please write back to us on connect@mmeducationfoundation.org.</p>
+        <div class="close-btn">X</div>
+    <script src="custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</body>
+</html>
